@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ProductosPage from '@/pages/ProductosPage.vue'
+import UsuariosPage from '@/pages/UsuariosPage.vue'
 
 // Definición de las rutas de la aplicación
 const routes = [
@@ -14,6 +15,11 @@ const routes = [
         path: '/productos',
         name: 'productos',
         component: ProductosPage
+    },
+    {
+        path: '/usuarios',
+        name: 'usuarios',
+        component: UsuariosPage
     }
 ]
 

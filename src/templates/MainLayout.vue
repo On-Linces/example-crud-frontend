@@ -1,45 +1,17 @@
 <script setup lang="ts">
-// Layout principal de la aplicación
+// Importar componentes compartidos
+import Header from '@/components/Shared/Header.vue'
+import Footer from '@/components/Shared/Footer.vue'
 </script>
 
 <template>
-  <div class="layout">
-    <header>
-      <h1>Ejemplo CRUD</h1>
-    </header>
+  <div class="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
+    <Header />
 
-    <main>
+    <main class="flex-1 max-w-7xl mx-auto w-full px-6 py-12">
       <slot />
     </main>
 
-    <footer>
-      <p>&copy; 2026 - OnLinces</p>
-    </footer>
+    <Footer />
   </div>
 </template>
-
-<style scoped>
-.layout {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-header {
-  padding: 1rem;
-  background: #333;
-  color: white;
-}
-
-main {
-  flex: 1;
-  padding: 1rem;
-}
-
-footer {
-  padding: 1rem;
-  background: #333;
-  color: white;
-  text-align: center;
-}
-</style>

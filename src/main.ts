@@ -2,6 +2,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './routes'
+// Importar estilos globales (Tailwind + ajustes personalizados)
+import './style.css'
 
 // Crea la instancia de la aplicación Vue usando el componente raíz App
 const app = createApp(App)

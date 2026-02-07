@@ -4,8 +4,8 @@ import { ref } from 'vue'
 import type { Producto, ProductoFormData } from '@/@types/producto'
 // Hook personalizado que maneja toda la lógica del estado de productos (CRUD)
 import { useProductos } from '@/hooks/useProductos'
-import ProductoForm from '@/components/ProductoForm.vue'
-import ProductoTable from '@/components/ProductoTable.vue'
+import ProductoForm from '@/components/Productos/ProductoForm.vue'
+import ProductoTable from '@/components/Productos/ProductoTable.vue'
 
 // Desestructuramos las variables y funciones reactivas necesarias del hook
 const {
@@ -52,16 +52,20 @@ async function handleDelete(id: number) {
 </script>
 
 <template>
-  <div>
-    <!-- Muestra errores si existen -->
-    <p v-if="error" style="color: red;">{{ error }}</p>
+  <div class="space-y-8">
+    <div v-if="error" class="rounded-lg bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 p-4">
+      <p class="text-sm text-red-700 dark:text-red-200 flex items-center gap-2">
+        <span>⚠️</span> {{ error }}
+      </p>
+    </div>
 
-    <!-- Componente del formulario: Se usa tanto para crear como para editar -->
-    <ProductoForm :producto="productoEditando" :loading="loading" @submit="handleSubmit" @cancel="handleCancel" />
-
-    <hr />
-
-    <!-- Componente de la tabla: Lista los productos y emite eventos de acción -->
-    <ProductoTable :productos="productos" :loading="loading" @edit="handleEdit" @delete="handleDelete" />
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-1">
+        <ProductoForm :producto="productoEditando" :loading="loading" @submit="handleSubmit" @cancel="handleCancel" />
+      </div>
+      <div class="lg:col-span-2">
+        <ProductoTable :productos="productos" :loading="loading" @edit="handleEdit" @delete="handleDelete" />
+      </div>
+    </div>
   </div>
 </template>

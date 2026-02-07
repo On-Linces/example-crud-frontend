@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Formulario reutilizable para crear o editar un Producto.
 // Valida localmente antes de emitir `submit` y soporta `cancel`.
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import type { Producto, ProductoFormData } from '@/@types/producto'
 import { validateProducto, type ValidationError } from '@/validators/producto.validator'
 
@@ -67,44 +67,44 @@ function handleCancel() {
   errors.value = []
   emit('cancel')
 }
+
+// Exponemos una función para resetear el formulario desde el padre (útil después de crear un nuevo producto)
+const formTitle = computed(() => props.producto ? 'Editar Producto' : 'Nuevo Producto')
+const submitText = computed(() => props.producto ? 'Actualizar' : 'Crear')
 </script>
 
 <template>
-  <form @submit.prevent="handleSubmit">
-    <!-- El título cambia dinámicamente según si estamos editando o creando -->
-    <h2>{{ producto ? 'Editar Producto' : 'Nuevo Producto' }}</h2>
+  <form @submit.prevent="handleSubmit" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+    <h2 class="text-xl font-bold mb-4">{{ formTitle }}</h2>
 
-    <!-- Campo Nombre -->
-    <div>
-      <label for="nombre">Nombre:</label>
-      <input id="nombre" type="text" v-model="formData.nombre" :disabled="loading" />
-      <!-- Mensaje de error condicional para nombre -->
-      <span v-if="getError('nombre')" style="color: red;">{{ getError('nombre') }}</span>
+    <div class="space-y-4">
+      <div>
+        <label for="nombre" class="block text-sm font-medium mb-1">Nombre</label>
+        <input id="nombre" type="text" v-model="formData.nombre" :disabled="loading"
+          class="w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" />
+        <p v-if="getError('nombre')" class="text-red-500 text-sm mt-1">{{ getError('nombre') }}</p>
+      </div>
+
+      <div>
+        <label for="precio" class="block text-sm font-medium mb-1">Precio</label>
+        <input id="precio" type="number" step="0.01" v-model.number="formData.precio" :disabled="loading"
+          class="w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" />
+        <p v-if="getError('precio')" class="text-red-500 text-sm mt-1">{{ getError('precio') }}</p>
+      </div>
+
+      <div>
+        <label for="cantidad" class="block text-sm font-medium mb-1">Cantidad</label>
+        <input id="cantidad" type="number" v-model.number="formData.cantidad" :disabled="loading"
+          class="w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" />
+        <p v-if="getError('cantidad')" class="text-red-500 text-sm mt-1">{{ getError('cantidad') }}</p>
+      </div>
     </div>
 
-    <!-- Campo Precio -->
-    <div>
-      <label for="precio">Precio:</label>
-      <input id="precio" type="number" step="0.01" v-model.number="formData.precio" :disabled="loading" />
-      <span v-if="getError('precio')" style="color: red;">{{ getError('precio') }}</span>
-    </div>
-
-    <!-- Campo Cantidad -->
-    <div>
-      <label for="cantidad">Cantidad:</label>
-      <input id="cantidad" type="number" v-model.number="formData.cantidad" :disabled="loading" />
-      <span v-if="getError('cantidad')" style="color: red;">{{ getError('cantidad') }}</span>
-    </div>
-
-    <!-- Botones de Acción -->
-    <div>
-      <!-- El texto del botón también es dinámico -->
-      <button type="submit" :disabled="loading">
-        {{ producto ? 'Actualizar' : 'Crear' }}
-      </button>
-      <button type="button" @click="handleCancel" :disabled="loading">
-        Cancelar
-      </button>
+    <div class="flex gap-2 justify-end mt-6">
+      <button type="button" @click="handleCancel" :disabled="loading"
+        class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600">Cancelar</button>
+      <button type="submit" :disabled="loading" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">{{
+        submitText }}</button>
     </div>
   </form>
 </template>

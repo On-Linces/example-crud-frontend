@@ -10,18 +10,21 @@ export interface ValidationError {
 export function validateProducto(data: ProductoFormData): ValidationError[] {
     const errors: ValidationError[] = []
 
+    // Validación del campo "nombre"
     if (!data.nombre || data.nombre.trim() === '') {
         errors.push({ field: 'nombre', message: 'El nombre es requerido' })
     } else if (data.nombre.length < 2) {
         errors.push({ field: 'nombre', message: 'El nombre debe tener al menos 2 caracteres' })
     }
 
+    // Validación del campo "precio"
     if (data.precio === undefined || data.precio === null) {
         errors.push({ field: 'precio', message: 'El precio es requerido' })
     } else if (data.precio < 0) {
         errors.push({ field: 'precio', message: 'El precio no puede ser negativo' })
     }
 
+    // Validación del campo "cantidad"
     if (data.cantidad === undefined || data.cantidad === null) {
         errors.push({ field: 'cantidad', message: 'La cantidad es requerida' })
     } else if (data.cantidad < 0) {
