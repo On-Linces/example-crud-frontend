@@ -1,3 +1,4 @@
+// Crea la app Vue, configura el router y monta el componente raíz en #app.
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './routes'

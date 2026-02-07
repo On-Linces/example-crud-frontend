@@ -5,15 +5,15 @@
 <template>
   <div class="layout">
     <header>
-      <h1>Sistema de Inventario</h1>
+      <h1>Ejemplo CRUD</h1>
     </header>
-    
+
     <main>
       <slot />
     </main>
-    
+
     <footer>
-      <p>&copy; 2026 - CRUD Demo</p>
+      <p>&copy; 2026 - OnLinces</p>
     </footer>
   </div>
 </template>

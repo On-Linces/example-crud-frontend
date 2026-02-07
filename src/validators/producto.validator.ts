@@ -1,3 +1,4 @@
+// Funciones de validación del formulario de Producto.
 import type { ProductoFormData } from '@/@types/producto'
 
 export interface ValidationError {
@@ -5,6 +6,7 @@ export interface ValidationError {
     message: string
 }
 
+// Valida los datos del formulario de producto y devuelve un arreglo de errores (vacío si no hay errores)
 export function validateProducto(data: ProductoFormData): ValidationError[] {
     const errors: ValidationError[] = []
 
@@ -31,6 +33,7 @@ export function validateProducto(data: ProductoFormData): ValidationError[] {
     return errors
 }
 
+// Retorna true si los datos del formulario son válidos (sin errores)
 export function isValid(data: ProductoFormData): boolean {
     return validateProducto(data).length === 0
 }

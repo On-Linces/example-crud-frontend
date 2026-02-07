@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Página que muestra y gestiona Productos (lista + formulario). Usa el hook `useProductos` para la lógica.
 import { ref } from 'vue'
 import type { Producto, ProductoFormData } from '@/@types/producto'
 // Hook personalizado que maneja toda la lógica del estado de productos (CRUD)

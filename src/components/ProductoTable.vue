@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Componente visual que muestra la tabla de productos y emite acciones `edit` y `delete` al componente padre.
 import type { Producto } from '@/@types/producto'
 import { formatCurrency } from '@/utils/formatters'
 

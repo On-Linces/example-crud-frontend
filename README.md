@@ -1,5 +1,51 @@
-# Vue 3 + Vite
+# Frontend — Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Pequeña SPA en Vue 3 con TypeScript que consume la API en `Api/`.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Stack
+
+- Vue 3
+- Vite
+- TypeScript
+- Axios
+
+## Requirements
+
+- Node.js >= 18 + npm
+
+## Quick Start
+
+```bash
+cd Frontend
+npm install
+npm run dev
+```
+
+- Frontend disponible en: `http://localhost:5173`
+
+## Configuración
+
+1. Copia el archivo de ejemplo y crea tu `.env`:
+
+```bash
+cd Frontend
+# macOS / Linux
+cp .env.example .env
+# Windows (PowerShell)
+Copy-Item .env.example .env
+```
+
+2. Edita `.env` y ajusta `VITE_API_URL` si tu API corre en otra URL (incluir `/api` si tu backend lo usa):
+
+```
+VITE_API_URL=http://localhost:5295/api
+```
+
+3. Si el servidor de desarrollo (`npm run dev`) ya estaba corriendo, reinícialo para que tome las nuevas variables.
+
+
+## Build
+
+```bash
+npm run build
+```

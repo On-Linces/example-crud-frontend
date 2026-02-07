@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// Formulario reutilizable para crear o editar un Producto.
+// Valida localmente antes de emitir `submit` y soporta `cancel`.
 import { ref, watch } from 'vue'
 import type { Producto, ProductoFormData } from '@/@types/producto'
 import { validateProducto, type ValidationError } from '@/validators/producto.validator'

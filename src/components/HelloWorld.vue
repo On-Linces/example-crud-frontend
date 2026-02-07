@@ -1,4 +1,5 @@
 <script setup>
+// Componente demo generado por create-vue; útil para pruebas y HMR, no forma parte de la lógica principal de productos
 import { ref } from 'vue'
 
 defineProps({

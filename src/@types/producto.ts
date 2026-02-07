@@ -6,6 +6,7 @@ export interface Producto {
   cantidad: number
 }
 
+// Tipo para los datos del formulario de creación/edición de producto (sin id)
 export interface ProductoFormData {
   nombre: string
   precio: number

@@ -1,4 +1,8 @@
-// Utilidades de formateo
+// Funciones utilitarias para formatear valores en la UI:
+// - formatCurrency: formatea como moneda (MXN) para mostrar precios
+// - formatNumber: formatea números con separadores de miles
+// - formatDate: formatea fechas en español
+// Úsalas en templates para mostrar valores consistentes
 
 export function formatCurrency(value: number): string {
     return new Intl.NumberFormat('es-MX', {
