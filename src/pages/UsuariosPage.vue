@@ -2,8 +2,8 @@
 import { ref } from 'vue'
 import type { Usuario, UsuarioFormData } from '@/@types/usuario'
 import { useUsuarios } from '@/hooks/useUsuarios'
-import UsuarioForm from '@/components/Users/UsuarioForm.vue';
-import UsuarioTable from '@/components/Users/UsuarioTable.vue'
+import UsuarioForm from '@/components/Usuarios/UsuarioForm.vue';
+import UsuarioTable from '@/components/Usuarios/UsuarioTable.vue'
 
 const {
     usuarios,
