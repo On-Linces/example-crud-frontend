@@ -11,17 +11,17 @@ export function validateUsuario(data: UsuarioFormData): ValidationError[] {
     const errors: ValidationError[] = []
 
     // Validación del campo "name"
-    if (!data.name || data.name.trim() === '') {
-        errors.push({ field: 'name', message: 'El nombre es requerido' })
-    } else if (data.name.length < 2) {
-        errors.push({ field: 'name', message: 'El nombre debe tener al menos 2 caracteres' })
+    if (!data.nombre || data.nombre.trim() === '') {
+        errors.push({ field: 'nombre', message: 'El nombre es requerido' })
+    } else if (data.nombre.length < 2) {
+        errors.push({ field: 'nombre', message: 'El nombre debe tener al menos 2 caracteres' })
     }
 
     // Validación del campo "email"
-    if (!data.email || data.email.trim() === '') {
-        errors.push({ field: 'email', message: 'El email es requerido' })
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-        errors.push({ field: 'email', message: 'El email no es válido' })
+    if (!data.correo || data.correo.trim() === '') {
+        errors.push({ field: 'correo', message: 'El correo es requerido' })
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.correo)) {
+        errors.push({ field: 'correo', message: 'El correo no es válido' })
     }
 
     return errors

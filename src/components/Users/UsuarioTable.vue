@@ -53,8 +53,8 @@ defineProps<{
                     <tr v-for="usuario in usuarios" :key="usuario.id"
                         class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                         <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">{{ usuario.id }}</td>
-                        <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ usuario.name }}</td>
-                        <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400 font-mono">{{ usuario.email }}
+                        <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ usuario.nombre }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400 font-mono">{{ usuario.correo }}
                         </td>
                         <td class="px-6 py-4 text-sm flex gap-2 justify-center">
                             <button @click="$emit('edit', usuario)"

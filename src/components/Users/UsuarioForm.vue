@@ -14,8 +14,8 @@ const emit = defineEmits<{
 }>()
 
 const formData = ref<UsuarioFormData>({
-    name: '',
-    email: ''
+    nombre: '',
+    correo: ''
 })
 
 const errors = ref<ValidationError[]>([])
@@ -23,11 +23,11 @@ const errors = ref<ValidationError[]>([])
 watch(() => props.usuario, (newUsuario) => {
     if (newUsuario) {
         formData.value = {
-            name: newUsuario.name,
-            email: newUsuario.email
+            nombre: newUsuario.nombre,
+            correo: newUsuario.correo
         }
     } else {
-        formData.value = { name: '', email: '' }
+        formData.value = { nombre: '', correo: '' }
     }
     errors.value = []
 }, { immediate: true })
@@ -46,13 +46,13 @@ function handleSubmit() {
 
 const handleCancel = () => {
     // Limpiar campos localmente (útil en modo "crear") y notificar al padre
-    formData.value = { name: '', email: '' }
+    formData.value = { nombre: '', correo: '' }
     errors.value = []
     emit('cancel')
 }
 
 function resetForm() {
-    formData.value = { name: '', email: '' }
+    formData.value = { nombre: '', correo: '' }
     errors.value = []
 }
 
@@ -68,17 +68,17 @@ const submitText = computed(() => props.usuario ? 'Actualizar' : 'Crear')
 
         <div class="space-y-4">
             <div>
-                <label for="name" class="block text-sm font-medium mb-1">Nombre</label>
-                <input id="name" type="text" v-model="formData.name" :disabled="loading"
+                <label for="nombre" class="block text-sm font-medium mb-1">Nombre</label>
+                <input id="nombre" type="text" v-model="formData.nombre" :disabled="loading"
                     class="w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" />
-                <p v-if="getError('name')" class="text-red-500 text-sm mt-1">{{ getError('name') }}</p>
+                <p v-if="getError('nombre')" class="text-red-500 text-sm mt-1">{{ getError('nombre') }}</p>
             </div>
 
             <div>
-                <label for="email" class="block text-sm font-medium mb-1">Email</label>
-                <input id="email" type="email" v-model="formData.email" :disabled="loading"
+                <label for="correo" class="block text-sm font-medium mb-1">Correo</label>
+                <input id="correo" type="email" v-model="formData.correo" :disabled="loading"
                     class="w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600" />
-                <p v-if="getError('email')" class="text-red-500 text-sm mt-1">{{ getError('email') }}</p>
+                <p v-if="getError('correo')" class="text-red-500 text-sm mt-1">{{ getError('correo') }}</p>
             </div>
         </div>
 

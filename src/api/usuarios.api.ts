@@ -14,31 +14,31 @@ const api = axios.create({
 export const usuariosApi = {
     // GET: Obtener todos los usuarios del servidor
     async getAll(): Promise<Usuario[]> {
-        const { data } = await api.get<Usuario[]>('/users')
+        const { data } = await api.get<Usuario[]>('/usuarios')
         return data
     },
 
     // GET: Obtener un usuario específico por su ID
     async getById(id: number): Promise<Usuario> {
-        const { data } = await api.get<Usuario>(`/users/${id}`)
+        const { data } = await api.get<Usuario>(`/usuarios/${id}`)
         return data
     },
 
     // POST: Crear un nuevo usuario enviando los datos del formulario
     async create(usuario: UsuarioFormData): Promise<Usuario> {
-        const { data } = await api.post<Usuario>('/users', usuario)
+        const { data } = await api.post<Usuario>('/usuarios', usuario)
         return data
     },
 
     // PUT: Actualizar un usuario existente
     // Se combina el ID y los datos del formulario para enviar el objeto completo
     async update(id: number, usuario: UsuarioFormData): Promise<void> {
-        await api.put(`/users/${id}`, { id, ...usuario })
+        await api.put(`/usuarios/${id}`, { id, ...usuario })
     },
 
     // DELETE: Eliminar un usuario por su ID
     async delete(id: number): Promise<void> {
-        await api.delete(`/users/${id}`)
+        await api.delete(`/usuarios/${id}`)
     }
 }
 

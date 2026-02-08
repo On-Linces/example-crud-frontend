@@ -1,12 +1,12 @@
 // Tipos personalizados para Producto
 export interface Usuario {
     id: number
-    name: string
-    email: string
+    nombre: string
+    correo: string
 }
 
 // Tipo para los datos del formulario de creación/edición de producto (sin id)
 export interface UsuarioFormData {
-    name: string
-    email: string
+    nombre: string
+    correo: string
 }
